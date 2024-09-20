@@ -1,12 +1,15 @@
 package com.tekdays
 
-
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class TekEventController {
+    private static final Logger logger = LoggerFactory.getLogger(TekEventController)
+
     def taskService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -20,6 +23,7 @@ class TekEventController {
     }
 
     def create() {
+        logger.info("new event is being created")
         respond new TekEvent(params)
     }
 

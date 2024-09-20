@@ -1,10 +1,11 @@
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
-grails.config.locations = ["classpath:${appName}-config.properties",
-                           "classpath:${appName}-config.groovy",
-                           "file:${userHome}/.grails/${appName}-config.properties",
-                           "file:${userHome}/.grails/${appName}-config.groovy"]
+
+grails.config.locations = [ "classpath:${appName}-config.properties",
+                            "classpath:${appName}-config.groovy",
+                            "file:${userHome}/.grails/${appName}-config.properties",
+                            "file:${userHome}/.grails/${appName}-config.groovy"]
 
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
@@ -15,19 +16,19 @@ grails.project.groupId = appName // change this to alter the default package nam
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
 grails.mime.types = [ // the first one is the default format
-                      all          : '*/*', // 'all' maps to '*' or the first available format in withFormat
-                      atom         : 'application/atom+xml',
-                      css          : 'text/css',
-                      csv          : 'text/csv',
-                      form         : 'application/x-www-form-urlencoded',
-                      html         : ['text/html', 'application/xhtml+xml'],
-                      js           : 'text/javascript',
-                      json         : ['application/json', 'text/json'],
+                      all:           '*/*', // 'all' maps to '*' or the first available format in withFormat
+                      atom:          'application/atom+xml',
+                      css:           'text/css',
+                      csv:           'text/csv',
+                      form:          'application/x-www-form-urlencoded',
+                      html:          ['text/html','application/xhtml+xml'],
+                      js:            'text/javascript',
+                      json:          ['application/json', 'text/json'],
                       multipartForm: 'multipart/form-data',
-                      rss          : 'application/rss+xml',
-                      text         : 'text/plain',
-                      hal          : ['application/hal+json', 'application/hal+xml'],
-                      xml          : ['text/xml', 'application/xml']
+                      rss:           'application/rss+xml',
+                      text:          'text/plain',
+                      hal:           ['application/hal+json','application/hal+xml'],
+                      xml:           ['text/xml', 'application/xml']
 ]
 
 // URL Mapping Cache Max Size, defaults to 5000
@@ -56,7 +57,9 @@ grails {
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
     }
+
 }
+
 
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
@@ -69,7 +72,7 @@ grails.enable.native2ascii = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
-grails.web.disable.multipart = false
+grails.web.disable.multipart=false
 
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
@@ -94,12 +97,13 @@ environments {
 }
 
 // log4j configuration
-log4j.main = {
+log4j = {
     // Example of changing the log pattern for the default console appender:
     //
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
             'org.codehaus.groovy.grails.web.sitemesh',       // layouts
@@ -111,19 +115,34 @@ log4j.main = {
             'org.springframework',
             'org.hibernate',
             'net.sf.ehcache.hibernate'
-}
 
-grails {
-    mail {
-        host = "smtp.gmail.com"
-        port = 465
-        username = " "
-        password = " "
-        props = ["mail.smtp.auth":"true",
-                 "mail.smtp.socketFactory.port":"465",
-                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                 "mail.smtp.socketFactory.fallback":"false",
-                 "mail.smtp.starttls.required": "true",
-                 "mail.smtp.ssl.protocols": "TLSv1.2"]
+    environments {
+        development {
+            info 'org.hibernate'
+            info 'com.spiritofsoft'
+            info 'com.linkedin.grails'
+            info 'org.activiti'
+            info 'org.springframework.security'
+            debug 'com.tekdays'
+            debug 'org.apache.http'
+            debug 'org.apache.hc'
+//          debug 'com.spiritofsoft.integration'
+//	    debug 'com.spiritofsoft.web.hospital.TaskCompleteService'
+//	    debug 'com.spiritofsoft.web.hospital.VisitBedService'
+//	    debug 'com.spiritofsoft.web.hospital.Payment'
+//	    debug 'com.spiritofsoft.booking.RecurringRecord'
+//            appenders {
+//                def patternLayout = new org.apache.log4j.PatternLayout()
+//                patternLayout.setConversionPattern("%d{dd/MM/yyyy HH:mm:ss}  %-5p %l - %m%n")
+//                def mailAppender = new org.apache.log4j.net.SMTPAppender()
+//                mailappender.setfrom("do-not-reply@erebouni.am")
+//                mailappender.setto("web.hospital@spiritofsoft.com")
+//                mailAppender.setSubject("[Error in web.hospital application]")
+//                mailAppender.setThreshold(org.apache.log4j.Level.ERROR)
+//                mailAppender.setSMTPHost("mail.spiritofsoft.com")
+//                mailAppender.setLayout(patternLayout)
+//                appender name: 'mail', mailAppender
+//            }
+        }
     }
 }
