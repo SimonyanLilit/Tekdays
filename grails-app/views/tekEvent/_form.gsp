@@ -1,14 +1,5 @@
 <%@ page import="com.tekdays.TekEvent" %>
 
-<g:if test="${tekMessageInstance?.parent}">
-	<div class="fieldcontain ${hasErrors(bean: tekMessageInstance,
-			field: 'parent', 'error')} ">
-		<label for="parent">
-			In Reply to:
-		</label>
-		${tekMessageInstance?.parent?.author}
-	</div>
-</g:if>
 
 <div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'name', 'error')} required">
 	<label for="name">
@@ -75,21 +66,22 @@
 
 <div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'sponsorships', 'error')} ">
 	<label for="sponsorships">
-		<g:message code="tekEvent.sponsorships.label" default="Sponsorships" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${tekEventInstance?.sponsorships?}" var="s">
-    <li><g:link controller="sponsorship" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="sponsorship" action="create" params="['tekEvent.id': tekEventInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'sponsorship.label', default: 'Sponsorship')])}</g:link>
-</li>
-</ul>
+		<g:message code="tekEvent.sponsorships.label" default="Sponsorships"/>
 
+	</label>
+
+	<ul class="one-to-many">
+		<g:each in="${tekEventInstance?.sponsorships ?}" var="s">
+			<li><g:link controller="sponsorship" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+		</g:each>
+		<li class="add">
+			<g:link controller="sponsorship" action="create"
+					params="['tekEvent.id': tekEventInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'sponsorship.label', default: 'Sponsorship')])}</g:link>
+		</li>
+	</ul>
 
 </div>
+
 
 <div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'tasks', 'error')} ">
 	<label for="tasks">
