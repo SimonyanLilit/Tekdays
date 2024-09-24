@@ -17,9 +17,7 @@
 			</ul>
 		</div>
 		<div id="create-tekMessage" class="content scaffold-create" role="main">
-			<%
-System.out.print("tekMessageInstance ${tekMessageInstance?.event}")
-%>
+
 			<h1>${tekMessageInstance?.event.name} Forum - New Message</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

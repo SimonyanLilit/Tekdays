@@ -100,33 +100,25 @@
 
 
 </div>
+<g:if test="${tekEventInstance?.id}">
+	<div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'messages', 'error')} ">
+		<label for="messages">
+			<g:message code="tekEvent.messages.label" default="Messages" />
 
-<div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'messages', 'error')} ">
-	<label for="messages">
-		<g:message code="tekEvent.messages.label" default="Messages" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${tekEventInstance?.messages?}" var="m">
-    <li><g:link controller="tekMessage" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="tekMessage" action="create" params="['tekEvent.id': tekEventInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'tekMessage.label', default: 'TekMessage')])}</g:link>
-</li>
-</ul>
+		</label>
 
 
-</div>
+		<ul class="one-to-many">
+			<g:each in="${tekEventInstance?.messages?}" var="m">
+				<li><g:link controller="tekMessage" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
+			</g:each>
+			<li class="add">
+				<g:link controller="tekMessage" action="create" params="['tekEvent.id': tekEventInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'tekMessage.label', default: 'TekMessage')])}</g:link>
+			</li>
+		</ul>
+	</div>
+</g:if>
 
-<div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'respondents', 'error')} ">
-	<label for="respondents">
-		<g:message code="tekEvent.respondents.label" default="Respondents" />
-		
-	</label>
-	
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: tekEventInstance, field: 'volunteers', 'error')} ">
 	<label for="volunteers">

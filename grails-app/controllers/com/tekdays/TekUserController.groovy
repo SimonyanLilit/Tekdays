@@ -109,7 +109,11 @@ class TekUserController {
         def user = TekUser.findByUserName(params.username)
         if (user && user.password == params.password){
             session.user = user
-            redirect controller:'tekEvent', action:'index'
+            if (params.cName)
+                redirect controller:params.cName, action:params.aName
+            else
+
+            redirect (url: '/')
         }
         else{
             flash.message = "Invalid username and password."
