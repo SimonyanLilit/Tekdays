@@ -55,6 +55,10 @@ grails.project.dependency.resolution = {
         compile('org.hibernate:hibernate-envers:4.3.11.Final') {
             transitive = false
         }
+        bundle('javax.websocket:javax.websocket-api:1.1') {
+
+            export = false
+        }
 
     }
 

@@ -20,6 +20,10 @@
 		<div id="logo" role="banner"><a href="${createLink(uri: '/')}">
 			<img  style="width: 100%;" src="${resource(dir: 'images', file: 'td_logo.png')}" alt="TekDays"/></a>
 			<g:loginToggle/></div>
+%{--	<g:if test="${!session.user}">--}%
+%{--		<g:link class="create" controller="tekUser" action="create"> Registration--}%
+%{--    </g:link>--}%
+%{--	</g:if>--}%
 
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

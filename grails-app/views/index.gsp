@@ -24,9 +24,6 @@
 				margin-left: 20px;
 				margin-right: 10%;
 			}
-			.buttons{
-				margin-left: 70%;
-			}
 
 
 
@@ -49,7 +46,7 @@
 	fancy. If there is, you can volunteer to help or just let the
 	organizers know that you'd be interested in attending.
 	Everybody has a role to play.</p>
-	<span class="buttons" >
+	<span class="buttons" style="margin-left: 71%" >
 		<g:link controller="tekEvent" action="index">Find a Tek Event</g:link>
 	</span>
 </div>
@@ -59,7 +56,7 @@
 	then why not get the ball rolling. It's easy to get started and
 	there may be others out there ready to get behind you to make it
 	happen.</p>
-	<span class="buttons" >
+	<span class="buttons" style="margin-left: 67%">
 		<g:link controller="tekEvent" action="create"> Organize a Tek Event</g:link>
 
 
@@ -71,9 +68,17 @@
 	<p>If you are part of a business or organization that is involved in
 	technology then sponsoring a tek event would be a great way to
 	let the community know that you're there and you're involved.</p>
-	<span class="buttons" >
+	<span class="buttons" style="margin-left: 70%" >
 		<g:link controller="sponsor" action="create">Sponsor a Tek Event</g:link>
+	</span>
+</div>
+<div class="homeCell">
+	<h3>Chat with another Tek Users </h3>
+	<p> Chat with another tek users in the chatroom </p>
+	<span class="buttons" style="margin-left: 71%" >
+		<g:link controller="tekUser" action="chatroom">Go to the chatroom</g:link>
 	</span>
 </div>
 </body>
 </html>
+

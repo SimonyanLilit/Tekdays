@@ -1,5 +1,8 @@
 package com.tekdays
 
+import org.hibernate.envers.Audited
+
+@Audited
 class TekUser {
     String fullName
     String userName
@@ -7,6 +10,13 @@ class TekUser {
     String email
     String website
     String bio
+
+    Date dateCreated
+    Date lastUpdated
+
+    static void get(Object o) {
+
+    }
 
 
     String toString() { fullName }

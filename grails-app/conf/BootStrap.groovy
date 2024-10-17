@@ -13,7 +13,9 @@ class BootStrap {
 worked with every programming language known to man
 and has settled on Groovy. In his spare time, John
 dabbles in astro physics and plays
-shuffleboard.''').save()
+shuffleboard.''',
+                    dateCreated: new Date(),
+                    lastUpdated: new Date()).save()
             new TekUser(fullName: 'John Deere',
                     userName: 'tractorman',
                     password: 't0ps3cr3t',
@@ -21,7 +23,9 @@ shuffleboard.''').save()
                     website: 'www.perl.porkproducers.org',
                     bio: '''John is a top notch Perl programmer and a pretty
 good hand around the farm. If he can't program it he
-can plow it!''').save()
+can plow it!''',
+            dateCreated: new Date(),
+                    lastUpdated: new Date()).save()
             def event1 = new TekEvent(name: 'Gateway Code Camp',
 
                     city: 'Saint Louis, MO',
@@ -75,7 +79,8 @@ there!''')
                     password: '12345',
                     email: 'mrbill@email.com',
                     website: 'www.mrbillswebsite.com',
-                    bio: 'Software developer, claymation artist.'))
+                    bio: 'Software developer, claymation artist.',  dateCreated: new Date(),
+                    lastUpdated: new Date()))
             g1.addToRespondents('ben@grailsmail.com')
             g1.addToRespondents('zachary@linuxgurus.org')
             g1.addToRespondents('solomon@bootstrapwelding.com')

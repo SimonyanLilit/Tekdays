@@ -1,4 +1,4 @@
-<%@ page import="com.tekdays.TekMessage" %>
+<%@ page import="com.tekdays.TekUser; com.tekdays.TekMessage" %>
 
 <g:if test="${tekMessageInstance?.parent}">
 
@@ -35,7 +35,7 @@
 		<g:message code="tekMessage.author.label" default="Author" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="author" name="author.id" from="${com.tekdays.TekUser.list()}" optionKey="id" required="" value="${tekMessageInstance?.author?.id}" class="many-to-one"/>
+	<g:select id="author" name="author.id" from="${TekUser.list()}" optionKey="id" required="" value="${tekMessageInstance?.author?.id}" class="many-to-one"/>
 
 </div>
 

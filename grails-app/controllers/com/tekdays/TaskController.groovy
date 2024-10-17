@@ -10,9 +10,9 @@ class TaskController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Task.list(params), model:[taskInstanceCount: Task.count()]
+    def index(Integer max,TekEvent event) {
+//        params.max = Math.min(max ?: 10, 100)
+        respond Task.findAllByEvent(event), model:[taskInstanceCount: Task.count()]
     }
 
     def show(Task taskInstance) {

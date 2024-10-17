@@ -6,9 +6,28 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'tekUser.label', default: 'TekUser')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+%{--		<script>--}%
+%{--			function callDelete() {--}%
+%{--				if (confirm("Are you sure? ")) {--}%
+%{--					$.ajax({--}%
+%{--						type: "POST",--}%
+%{--						url: "/TekDays/tekUser/delete/",--}%
+
+%{--						cache: false,--}%
+%{--						success: function () {--}%
+%{--							alert("The user has been deleted!")--}%
+%{--						},--}%
+%{--						error: function () {--}%
+%{--							console.log('Error during getting services to be added for partner with id: ' + $(this).children("option:selected").val());--}%
+%{--							alert("This user can not be deleted")--}%
+%{--						}--}%
+%{--					});--}%
+%{--				}--}%
+%{--			}--}%
+%{--		</script>--}%
 	</head>
 	<body>
-		<a href="#show-tekUser" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+	<a href="#show-tekUser" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -81,7 +100,8 @@
 			<g:form url="[resource:tekUserInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${tekUserInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+%{--					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="callDelete()" />--}%
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/>
 				</fieldset>
 			</g:form>
 		</div>

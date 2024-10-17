@@ -40,9 +40,8 @@
 	<tr class="${(i%2)==0? 'even' : 'odd'}">
 		<td><g:link action="show" id="${sponsorInstance.id}">${fieldValue(bean: sponsorInstance, field: "name")}</g:link></td>
 		<td>${fieldValue(bean: sponsorInstance, field: "website")}</td>
-		<td>${fieldValue(bean: sponsorInstance, field: "description")}/td>
+		<td>${fieldValue(bean: sponsorInstance, field: "description")}</td>
 		<td>${fieldValue(bean: sponsorInstance, field: "logo")}</td>
-
 	</tr>
 </g:each>
 
